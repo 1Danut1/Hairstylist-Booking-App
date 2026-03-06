@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IdentityRole
+
+<style>
+    .text-white {
+        color: #FFFFFF; /* Setează culoarea textului la alb */
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <h2 class="text-white">Create Role</h2> <!-- Schimbă culoarea textului titlului -->
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <input asp-for="Name" class="form-control text-white" aria-required="true" /> <!-- Adaugă clasa text-white pentru a schimba culoarea textului la alb -->
+                <label asp-for="Name" class="text-white"></label> <!-- Schimbă culoarea textului etichetei la alb -->
+                <span asp-validation-for="Name" class="text-danger text-white"></span> <!-- Schimbă culoarea textului pentru mesajele de validare la alb -->
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>

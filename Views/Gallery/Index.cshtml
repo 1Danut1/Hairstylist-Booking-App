@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dumi.C-Barber</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<link href="~/css/gallery.css" rel="stylesheet" />
+	<link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div class="full-img" id="fullImgBox">
+        <img src="gallery_images/image1.jpg" id="fullImg" />
+        <span onclick="closeFullImg()">X</span>
+    </div>
+    <div class="img-gallery">
+		<img src="~/img/image1.jpg" onclick="openFullImg(this.src)" />
+		<img src="~/img/image2.jpg" onclick="openFullImg(this.src)" />
+		<img src="~/img/image3.jpg" onclick="openFullImg(this.src)" />
+		<img src="~/img/image4.jpg" onclick="openFullImg(this.src)" />
+		<img src="~/img/image5.jpg" onclick="openFullImg(this.src)" />
+		<img src="~/img/image6.jpg" onclick="openFullImg(this.src)" />
+    </div>
+
+    <script>
+        var fullImgBox = document.getElementById("fullImgBox");
+        var fullImg = document.getElementById("fullImg");
+
+        function openFullImg(pic) {
+            fullImgBox.style.display = "flex";
+            fullImg.src = pic;
+        }
+
+        function closeFullImg() {
+            fullImgBox.style.display = "none";
+        }
+    </script>
+</body>
+</html>

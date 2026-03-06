@@ -1,0 +1,105 @@
+﻿@model SiteHairStylist.Models.Servicii
+
+@{
+    ViewData["Title"] = "Add Service";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+
+        body {
+            background-color: #2c2c2c; /* Dark background */
+            color: #FFFFFF; /* White text */
+            font-family: 'Oswald', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #FFD700; /* Gold color */
+            font-family: 'Permanent Marker', cursive; /* Graffiti-like font */
+            margin-top: 20px;
+        }
+
+        .form-section {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #555555;
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+        }
+
+        .btn-primary {
+            background-color: #008000; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #006400; /* Dark green */
+        }
+
+        a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Add Service</h2>
+
+    <div class="form-section">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Nume"></label>
+                <input asp-for="Nume" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Descriere"></label>
+                <textarea asp-for="Descriere"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Durata"></label>
+                <input asp-for="Durata" type="number" />
+            </div>
+            <button type="submit" class="btn-primary">Save</button>
+        </form>
+    </div>
+</body>
+</html>

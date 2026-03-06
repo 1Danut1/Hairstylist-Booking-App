@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: url("../img/background.jpg") center/cover no-repeat;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.form-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 101;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    max-width: 720px;
+    background: #ffffff;
+    border: none;
+    transform: translate(-50%, -70%);
+}
+
+.show-popup .form-popup {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease, opacity 0.1s;
+}
+
+.form-popup .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #878484;
+    cursor: pointer;
+}
+
+.blur-bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: 0.1s ease;
+}
+
+.show-popup .blur-bg-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form-popup .form-box {
+    display: flex;
+}
+
+.form-box .form-details {
+    width: 100%;
+    color: #ffffff;
+    max-width: 330px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box .form-content {
+    width: 100%;
+    padding: 35px;
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 29px;
+}
+
+form .input-field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-field input {
+    height: 100%;
+    width: 100%;
+    background: none;
+    outline: none;
+    font-size: 0.95rem;
+    padding: 0 15px;
+    border: 1px solid #717171;
+    border-radius: 3px;
+}
+
+    .input-field input:focus {
+        border: 1px solid #00bcd4;
+    }
+
+.input-field label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #4a4646;
+    pointer-events: none;
+    transition: 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) {
+    padding: 16px 15px 0;
+}
+
+    .input-field input:is(:focus, :valid) ~ label {
+        transform: translateY(-120%);
+        color: #00bcd4;
+        font-size: 0.75rem;
+    }
+
+.form-box a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+    .form-box a:hover {
+        text-decoration: underline;
+    }
+
+form :where(.forgot-pass-link, .policy-text) {
+    display: inline-flex;
+    margin-top: 13px;
+    font-size: 0.95rem;
+}
+
+form button {
+    width: 100%;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 14px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 25px 0;
+    background: #00bcd4;
+    transition: 0.2s ease;
+}
+
+    form button:hover {
+        background: #0097a7;
+    }
+
+.form-content .bottom-link {
+    text-align: center;
+}
+
+.form-popup .signup,
+.form-popup.show-signup .login {
+    display: none;
+}
+
+.form-popup.show-signup .signup {
+    display: flex;
+}
+
+.signup .policy-text {
+    display: flex;
+    margin-top: 14px;
+    align-items: center;
+}
+
+    .signup .policy-text input {
+        width: 14px;
+        height: 14px;
+        margin-right: 7px;
+    }
+
+.about-me {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    z-index: 20;
+}
+
+    .about-me h2 {
+        color: #ffffff;
+        margin-bottom: 15px;
+        text-shadow: 3px 3px 3px rgb(0, 0, 0);
+    }
+
+    .about-me p {
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 1.6;
+        text-shadow: 3px 3px 3px rgb(0, 0, 0);
+    }
+
+    .about-me img {
+        margin-top: 20px;
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        border-radius: 50%;
+        border: 3px solid #275360;
+    }
+
+
+@media (max-width: 760px) {
+    .form-popup {
+        width: 85%;
+    }
+
+    .form-box .form-details {
+        display: none;
+    }
+
+    .form-box .form-content {
+        padding: 30px 20px;
+    }
+
+    .about-me {
+        width: 60%;
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+
+/* Stilizare pentru navbar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5); /* Fundal negru transparent */
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #FFFFFF; /* Text alb */
+}
+

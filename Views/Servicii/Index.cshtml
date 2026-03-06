@@ -1,0 +1,102 @@
+﻿@model IEnumerable<SiteHairStylist.Models.Servicii>
+
+@{
+    ViewData["Title"] = "Services";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #2c2c2c; /* Dark background */
+            color: #FFFFFF; /* White text */
+            font-family: 'Oswald', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #FFD700; /* Gold color */
+            font-family: 'Permanent Marker', cursive; /* Graffiti-like font */
+            margin-top: 20px;
+        }
+
+        .services-section {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .service {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #555555; /* Dark gray border */
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .service h4 {
+            color: #FFD700; /* Gold color */
+            font-family: 'Permanent Marker', cursive;
+        }
+
+        .service p {
+            margin: 5px 0;
+        }
+
+        .btn-primary {
+            background-color: #008000; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #006400; /* Dark green */
+        }
+
+        a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Our Services</h2>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-primary" href="@Url.Action("Create", "Servicii")">Add a Service</a>
+    }
+
+    <div class="services-section">
+        @foreach (var service in Model)
+        {
+            <div class="service">
+                <h4>@service.Nume</h4>
+                <p>@service.Descriere</p>
+                <p>Duration: @service.Durata minutes</p>
+                <a class="btn btn-primary" href="@Url.Action("Create", "Programari", new { serviceId = service.ServiceID })">Fa o programare</a>
+            </div>
+        }
+    </div>
+</body>
+</html>

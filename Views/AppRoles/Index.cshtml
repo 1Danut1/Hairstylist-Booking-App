@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+
+@{
+    ViewData["Title"] = "Application Roles";
+}
+
+<style>
+    .text-white {
+        color: #FFFFFF; /* Setează culoarea textului la alb */
+    }
+</style>
+
+<h1 class="text-white">View Roles</h1> <!-- Schimbă culoarea textului titlului la alb -->
+<p>
+    <a asp-action="Create" class="text-white">Create Role</a> <!-- Schimbă culoarea textului linkului la alb -->
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-white">@Html.DisplayNameFor(model => model.Id)</th> <!-- Schimbă culoarea textului pentru antet la alb -->
+
+            <th class="text-white">@Html.DisplayNameFor(model => model.Name)</th> <!-- Schimbă culoarea textului pentru antet la alb -->
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-white">@Html.DisplayFor(modelItem => item.Id)</td> <!-- Schimbă culoarea textului pentru celule la alb -->
+
+                <td class="text-white">@Html.DisplayFor(modelItem => item.Name)</td> <!-- Schimbă culoarea textului pentru celule la alb -->
+            </tr>
+        }
+    </tbody>
+</table>
